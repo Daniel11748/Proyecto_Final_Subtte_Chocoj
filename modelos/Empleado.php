@@ -79,4 +79,10 @@ class Empleado extends conexion{
         return $resultado; 
     }
 
+    public function eliminar(){
+        $sql = "UPDATE empleados SET emp_situacion = 0 WHERE emp_id = $this->emp_id ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
+
 }
