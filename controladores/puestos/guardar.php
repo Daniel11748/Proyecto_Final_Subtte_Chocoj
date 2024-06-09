@@ -20,7 +20,7 @@ if ($_POST['pue_nombre'] == '' || $_POST['pue_sueldo'] < 0) {
 } else {
     try {
         // REALIZAR CONSULTA
-        $puesto = new Puesto($_POST);
+        $puestos = new Puesto($_POST);
         $guardar = $puestos->guardar();
         $resultado = [
             'mensaje' => 'CLIENTE INSERTADO CORRECTAMENTE',
