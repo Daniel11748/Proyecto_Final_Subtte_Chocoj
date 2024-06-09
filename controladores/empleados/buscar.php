@@ -6,11 +6,10 @@ require '../../modelos/Empleado.php';
 try {
     $_GET['emp_nombre'] = htmlspecialchars($_GET['emp_nombre']);
     $_GET['emp_dpi'] = htmlspecialchars($_GET['emp_dpi']);
-    $_GET['emp_puesto'] = filter_var($puesto, FILTER_VALIDATE_INT);
-    $_GET['emp_edad'] = filter_var($edad, FILTER_VALIDATE_INT);
+    $_GET['emp_puesto'] = filter_var($_GET['emp_puesto'], FILTER_VALIDATE_INT);
+    $_GET['emp_edad'] = filter_var($_GET['emp_edad'], FILTER_VALIDATE_INT);
     $_GET['emp_sexo'] = htmlspecialchars($_GET['emp_sexo']);
-
-
+    
     $objEmpleado = new Empleado($_GET);
     $empleados = $objEmpleado->buscar();
     $resultado = [

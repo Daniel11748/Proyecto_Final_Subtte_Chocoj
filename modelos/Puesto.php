@@ -44,7 +44,7 @@ class Puesto extends conexion{
             $sql .= " AND pue_nombre like '%$this->pue_nombre%' ";
         }
         if($this->pue_sueldo != ''){
-            $sql .= " AND pue_sueldo like'%$this->pue_sueldo%' ";
+            $sql .= " AND pue_sueldo = $this->pue_sueldo ";
         }
 
         $resultado = self::servir($sql);

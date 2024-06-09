@@ -52,14 +52,14 @@ class Empleado extends conexion{
         if($this->emp_dpi != ''){
             $sql .= " AND emp_dpi like'%$this->emp_dpi%' ";
         }
-        if($this->emp_puesto != ''){
+        if($this->emp_puesto != 0){
             $sql .= " AND emp_puesto like'%$this->emp_puesto%' ";
         }
-        if($this->emp_edad != ''){
-            $sql .= " AND emp_edad like'%$this->emp_edad%' ";
+        if($this->emp_edad != 0){
+            $sql .= " AND emp_edad = $this->emp_edad ";
         }
         if($this->emp_sexo != ''){
-            $sql .= " AND emp_sexo like'%$this->emp_sexo%' ";
+            $sql .= " AND emp_sexo = $this->emp_sexo ";
         }
 
         $resultado = self::servir($sql);

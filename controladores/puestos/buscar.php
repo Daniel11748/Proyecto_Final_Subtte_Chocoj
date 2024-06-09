@@ -5,7 +5,7 @@ require '../../modelos/Puesto.php';
 // consulta
 try {
     $_GET['pue_nombre'] = htmlspecialchars($_GET['pue_nombre']);
-    $_GET['pue_sueldo'] = filter_var($sueldo, FILTER_VALIDATE_INT);
+    $_GET['pue_sueldo'] = filter_var($_GET['pue_sueldo'], FILTER_VALIDATE_INT);
 
 
     $objPuesto = new Puesto($_GET);
