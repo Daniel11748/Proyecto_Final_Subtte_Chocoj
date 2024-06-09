@@ -22,10 +22,8 @@ include_once '../../vistas/templates/header.php'; ?>
                 <label for="emp_puesto">PUESTO</label>
                 <input type="number" name="emp_puesto" id="emp_puesto" class="form-control" required>
             </div>
-        </div>
-        <div class="row mb-3">
             <div class="col">
-                <label for="emp_edad">TELEFONO</label>
+                <label for="emp_edad">EDAD</label>
                 <input type="number" name="emp_edad" id="emp_edad" class="form-control" required>
             </div>
         </div>
