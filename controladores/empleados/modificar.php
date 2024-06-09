@@ -2,21 +2,18 @@
 
 require '../../modelos/Empleado.php';
 
-$puesto = $_POST['emp_puesto'];
-$edad = $_POST['emp_edad'];
-$sexo = $_POST['emp_sexo'];
-
-
 // VALIDAR INFORMACION
+$_POST['emp_id'] = filter_var($_POST['emp_id'], FILTER_VALIDATE_INT);
 $_POST['emp_nombre'] = htmlspecialchars($_POST['emp_nombre']);
 $_POST['emp_dpi'] = htmlspecialchars($_POST['emp_dpi']);
-$_POST['emp_puesto'] = filter_var($puesto, FILTER_VALIDATE_INT);
-$_POST['emp_edad'] = filter_var($edad, FILTER_VALIDATE_INT);
-$_POST['emp_sexo'] = filter_var($sexo, FILTER_VALIDATE_INT);
+$_POST['emp_puesto'] = filter_var($_POST['emp_puesto'], FILTER_VALIDATE_INT);
+$_POST['emp_edad'] = filter_var($_POST['emp_edad'], FILTER_VALIDATE_INT);
+$_POST['emp_sexo'] = filter_var($_POST['emp_sexo'], FILTER_VALIDATE_INT);
 
 
 
-if ($_POST['emp_nombre'] == '' || $_POST['emp_dpi'] == '' || $_POST['emp_puesto'] < 0 || $_POST['emp_edad'] < 0 || $_POST['emp_sexo'] < 0 || $_POST['emp_area'] < 0) {
+if ($_POST['emp_nombre'] == '' || $_POST['emp_dpi'] == '' || $_POST['emp_puesto'] < 0 || $_POST['emp_edad'] < 0|| $_POST['emp_sexo'] < 0) {
+
     // ALERTA PARA VALIDAR DATOS
     $resultado = [
         'mensaje' => 'DEBE VALIDAR LOS DATOS',
@@ -26,20 +23,23 @@ if ($_POST['emp_nombre'] == '' || $_POST['emp_dpi'] == '' || $_POST['emp_puesto'
     try {
         // REALIZAR CONSULTA
         $empleados = new Empleado($_POST);
-        $guardar = $empleados->guardar();
+
+        
+        $modificar = $empleados->modificar();
+
         $resultado = [
-            'mensaje' => 'CLIENTE INSERTADO CORRECTAMENTE',
+            'mensaje' => 'SE HA MODIFICADO CORRECTAMENTE EL EMPLEADO',
             'codigo' => 1
         ];
     } catch (PDOException $pe) {
         $resultado = [
-            'mensaje' => 'OCURRIO UN ERROR INSERTANDO A LA BD',
+            'mensaje' => 'OCURRIO UN ERROR AL MODIFICAR LOS REGISTROS DE LA BD',
             'detalle' => $pe->getMessage(),
             'codigo' => 0
         ];
     } catch (Exception $e) {
         $resultado = [
-            'mensaje' => 'OCURRIO UN ERROR EN LA EJECUCIÓN',
+            'mensaje' => 'HA OCURRIDO UN ERROR AL TRATAR DE EJECUTAR',
             'detalle' => $e->getMessage(),
             'codigo' => 0
         ];
@@ -55,12 +55,11 @@ include_once '../../vistas/templates/header.php'; ?>
 <div class="row justify-content-center">
     <div class="col-lg-6 alert alert-<?= $alertas[$resultado['codigo']] ?>" role="alert">
         <?= $resultado['mensaje'] ?>
-        <?= $resultado['detalle'] ?>
     </div>
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/empleado/index.php" class="btn btn-primary w-100">REGRESAR AL FORMULARIO DE REGISTRO</a>
+        <a href="../../controladores/empleados/buscar.php" class="btn btn-primary w-100">REGRESAR</a>
     </div>
 </div>
 
