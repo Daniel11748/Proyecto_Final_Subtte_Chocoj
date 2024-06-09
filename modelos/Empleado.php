@@ -18,7 +18,7 @@ class Empleado extends conexion{
         $this->emp_dpi = $args['emp_dpi'] ?? '';
         $this->emp_puesto = $args['emp_puesto'] ?? 0;
         $this->emp_edad = $args['emp_edad'] ?? 0;
-        $this->emp_sexo = $args['emp_sexo'] ?? 0;
+        $this->emp_sexo = $args['emp_sexo'] ?? '';
         $this->emp_situacion = $args['emp_situacion'] ?? '';
 
     }
@@ -32,5 +32,45 @@ class Empleado extends conexion{
         return $resultado; 
     }
 
+     // METODO PARA CONSULTAR
+     public static function buscarTodos(...$columnas){
+        $cols = count($columnas) > 0 ? implode(',', $columnas) : '*';
+        $sql = "SELECT $cols FROM empleados where emp_situacion = 1 ";
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+
+
+    public function buscar(...$columnas){
+        $cols = count($columnas) > 0 ? implode(',', $columnas) : '*';
+        $sql = "SELECT $cols FROM empleados where emp_situacion = 1 ";
+
+
+        if($this->emp_nombre != ''){
+            $sql .= " AND emp_nombre like '%$this->emp_nombre%' ";
+        }
+        if($this->emp_dpi != ''){
+            $sql .= " AND emp_dpi like'%$this->emp_dpi%' ";
+        }
+        if($this->emp_puesto != ''){
+            $sql .= " AND emp_puesto like'%$this->emp_puesto%' ";
+        }
+        if($this->emp_edad != ''){
+            $sql .= " AND emp_edad like'%$this->emp_edad%' ";
+        }
+        if($this->emp_sexo != ''){
+            $sql .= " AND emp_sexo like'%$this->emp_sexo%' ";
+        }
+
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+
+    public function buscarId($id){
+        $sql = " SELECT * FROM empleados WHERE emp_situacion = 1 AND emp_id= '$id' ";
+        $resultado = array_shift( self::servir($sql)) ;
+
+        return $resultado;
+    }
 
 }

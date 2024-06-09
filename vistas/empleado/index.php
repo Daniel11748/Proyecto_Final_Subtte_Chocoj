@@ -26,7 +26,7 @@ include_once '../../vistas/templates/header.php'; ?>
             </div>
             <div class="col">
             <label for="emp_sexo">SEXO</label>
-                <select class="form-select" aria-label="Default select example">
+                <select name="emp_sexo" class="form-select" aria-label="Default select example">
                     <option selected>SELECCIONAR UN SEXO</option>
                     <option value="1">MASCULINO</option>
                     <option value="2">FEMENINO</option>

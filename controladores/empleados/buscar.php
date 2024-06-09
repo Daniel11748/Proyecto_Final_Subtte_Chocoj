@@ -1,18 +1,21 @@
 <?php
 
-require '../../modelos/Puesto.php';
+require '../../modelos/Empleado.php';
 
 // consulta
 try {
-    $_GET['pue_nombre'] = htmlspecialchars($_GET['pue_nombre']);
-    $_GET['pue_sueldo'] = filter_var($sueldo, FILTER_VALIDATE_INT);
+    $_GET['emp_nombre'] = htmlspecialchars($_GET['emp_nombre']);
+    $_GET['emp_dpi'] = htmlspecialchars($_GET['emp_dpi']);
+    $_GET['emp_puesto'] = filter_var($puesto, FILTER_VALIDATE_INT);
+    $_GET['emp_edad'] = filter_var($edad, FILTER_VALIDATE_INT);
+    $_GET['emp_sexo'] = htmlspecialchars($_GET['emp_sexo']);
 
 
-    $objPuesto = new Puesto($_GET);
-    $puestos = $objPuesto->buscar();
+    $objEmpleado = new Empleado($_GET);
+    $empleados = $objEmpleado->buscar();
     $resultado = [
         'mensaje' => 'Datos encontrados',
-        'datos' => $puestos,
+        'datos' => $empleados,
         'codigo' => 1
     ];
 
@@ -37,10 +40,10 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row mb-4 justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/puesto/buscar.php" class="btn btn-primary w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
+        <a href="../../vistas/empleado/buscar.php" class="btn btn-primary w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
     </div>
 </div>
-<h1 class="text-center">PUESTOS EN NUETRA EMPRESA</h1>
+<h1 class="text-center">EMPLEADOS</h1>
 <div class="row justify-content-center">
     <div class="col-lg-8">
         <table class="table table-bordered table-hover">
@@ -48,25 +51,31 @@ include_once '../../vistas/templates/header.php'; ?>
                 <tr>
                     <th>No.</th>
                     <th>Nombre</th>
-                    <th>Sueldo</th>
+                    <th>DPI</th>
+                    <th>Puesto</th>
+                    <th>Edad</th>
+                    <th>Sexo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if ($resultado['codigo'] == 1 && count($puestos) > 0) : ?>
-                    <?php foreach ($puestos as $key => $puesto) : ?>
+                <?php if ($resultado['codigo'] == 1 && count($empleados) > 0) : ?>
+                    <?php foreach ($empleados as $key => $empleado) : ?>
                         <tr>
                             <td><?= $key + 1 ?></td>
-                            <td><?= $puesto['pue_nombre'] ?></td>
-                            <td><?= $puesto['pue_sueldo'] ?></td>
+                            <td><?= $empleado['emp_nombre'] ?></td>
+                            <td><?= $empleado['emp_dpi'] ?></td>
+                            <td><?= $empleado['emp_puesto'] ?></td>
+                            <td><?= $empleado['emp_edad'] ?></td>
+                            <td><?= $empleado['emp_sexo'] ?></td>
                             <td class="text-center">
                                 <div class="dropdown">
                                     <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Acciones
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/puesto/modificar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
-                                        <li><a class="dropdown-item" href="../../controladores/puestos/eliminar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
+                                        <li><a class="dropdown-item" href="../../vistas/empleado/modificar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
+                                        <li><a class="dropdown-item" href="../../controladores/empleado/eliminar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
                                     </ul>
                                 </div>
 
@@ -75,7 +84,7 @@ include_once '../../vistas/templates/header.php'; ?>
                     <?php endforeach ?>
                 <?php else : ?>
                     <tr>
-                        <td colspan="4">NO SE HAN REGISTRADO PUESTOS</td>
+                        <td colspan="4">NO SE HAN REGISTRADO EMPLEADOS</td>
                     </tr>
                 <?php endif ?>
             </tbody>
