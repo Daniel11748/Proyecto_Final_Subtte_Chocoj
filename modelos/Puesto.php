@@ -25,5 +25,43 @@ class Puesto extends conexion{
         return $resultado; 
     }
 
+    
+      // METODO PARA CONSULTAR
+      public static function buscarTodos(...$columnas){
+        $cols = count($columnas) > 0 ? implode(',', $columnas) : '*';
+        $sql = "SELECT $cols FROM puestos where pue_situacion = 1 ";
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+
+
+    public function buscar(...$columnas){
+        $cols = count($columnas) > 0 ? implode(',', $columnas) : '*';
+        $sql = "SELECT $cols FROM puestos where pue_situacion = 1 ";
+
+
+        if($this->pue_nombre != ''){
+            $sql .= " AND pue_nombre like '%$this->pue_nombre%' ";
+        }
+        if($this->pue_sueldo != ''){
+            $sql .= " AND pue_sueldo like'%$this->pue_sueldo%' ";
+        }
+
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+
+    public function buscarId($id){
+        $sql = " SELECT * FROM puestos WHERE pue_situacion = 1 AND pue_id = '$id' ";
+        $resultado = array_shift( self::servir($sql)) ;
+
+        return $resultado;
+    }
+
+    public function modificar(){
+        $sql = "UPDATE puestos SET pue_nombre = '$this->pue_nombre', pue_sueldo = '$this->pue_sueldo' WHERE pue_id = $this->pue_id ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
 
 }

@@ -2,7 +2,7 @@
 
 include_once '../../vistas/templates/header.php'; ?>
 
-<h1 class="text-center">FORMULARIO DE EMPLEADOS</h1>
+<h1 class="text-center">REGISTRO Y GESTION DE PUESTOS</h1>
 <div class="row justify-content-center">
     <form action="../../controladores/puestos/guardar.php" method="POST" class="border bg-light shadow rounded p-4 col-lg-6">
         <div class="row mb-3">
@@ -24,7 +24,7 @@ include_once '../../vistas/templates/header.php'; ?>
         </div>
         <div class="row">
             <div class="col">
-                <a href="../../controladores/empleados/buscar.php" class="btn btn-success w-100">BUSCAR</a>
+                <a href="../../controladores/puestos/buscar.php" class="btn btn-success w-100">BUSCAR</a>
             </div>
         </div>
     </form>
