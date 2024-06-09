@@ -28,7 +28,7 @@ if ($_POST['emp_nombre'] == '' || $_POST['emp_dpi'] == '' || $_POST['emp_puesto'
         $empleados = new Empleado($_POST);
         $guardar = $empleados->guardar();
         $resultado = [
-            'mensaje' => 'CLIENTE INSERTADO CORRECTAMENTE',
+            'mensaje' => 'SE HA INSERTADO EL EMPLEADO CORRECTAMENTE',
             'codigo' => 1
         ];
     } catch (PDOException $pe) {

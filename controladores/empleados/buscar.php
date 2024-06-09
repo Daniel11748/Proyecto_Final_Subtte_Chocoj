@@ -74,7 +74,7 @@ include_once '../../vistas/templates/header.php'; ?>
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="../../vistas/empleado/modificar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
-                                        <li><a class="dropdown-item" href="../../controladores/empleado/eliminar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
+                                        <li><a class="dropdown-item" href="../../controladores/empleados/eliminar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
                                     </ul>
                                 </div>
 
