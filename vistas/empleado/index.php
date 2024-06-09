@@ -10,8 +10,6 @@ include_once '../../vistas/templates/header.php'; ?>
                 <label for="emp_nombre">NOMBRE</label>
                 <input type="text" name="emp_nombre" id="emp_nombre" class="form-control" required>
             </div>
-        </div>
-        <div class="row mb-3">
             <div class="col">
                 <label for="emp_dpi">DPI</label>
                 <input type="text" name="emp_dpi" id="emp_dpi" class="form-control" required>
@@ -24,12 +22,6 @@ include_once '../../vistas/templates/header.php'; ?>
             </div>
             <div class="col">
                 <label for="emp_edad">EDAD</label>
-                <input type="number" name="emp_edad" id="emp_edad" class="form-control" required>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="emp_edad">TELEFONO</label>
                 <input type="number" name="emp_edad" id="emp_edad" class="form-control" required>
             </div>
             <div class="col">
