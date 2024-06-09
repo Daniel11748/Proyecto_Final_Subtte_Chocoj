@@ -73,4 +73,10 @@ class Empleado extends conexion{
         return $resultado;
     }
 
+    public function modificar(){
+        $sql = "UPDATE empleados SET emp_nombre = '$this->emp_nombre', emp_dpi = '$this->emp_dpi', emp_puesto = '$this->emp_puesto', emp_edad = '$this->emp_edad', emp_sexo = '$this->emp_sexo' WHERE emp_id = '$this->emp_id' ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
+
 }
