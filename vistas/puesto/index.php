@@ -7,13 +7,13 @@ include_once '../../vistas/templates/header.php'; ?>
     <form action="../../controladores/puestos/guardar.php" method="POST" class="border bg-light shadow rounded p-4 col-lg-6">
         <div class="row mb-3">
             <div class="col">
-                <label for="pue_nombre">NOMBRE</label>
+                <label for="pue_nombre">NOMBRE DEL PUESTO</label>
                 <input type="text" name="pue_nombre" id="pue_nombre" class="form-control" required>
             </div>
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label for="pue_sueldo">SUELDO</label>
+                <label for="pue_sueldo">SUELDO A DEVENGAR POR EL EMPLEADO</label>
                 <input type="text" name="pue_sueldo" id="pue_sueldo" class="form-control" required>
             </div>
         </div>

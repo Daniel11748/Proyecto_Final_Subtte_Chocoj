@@ -23,7 +23,7 @@ if ($_POST['pue_nombre'] == '' || $_POST['pue_sueldo'] < 0) {
         $puestos = new Puesto($_POST);
         $guardar = $puestos->guardar();
         $resultado = [
-            'mensaje' => 'CLIENTE INSERTADO CORRECTAMENTE',
+            'mensaje' => 'SE HA INSERTADO EL PUESTO CORRECTAMENTE',
             'codigo' => 1
         ];
     } catch (PDOException $pe) {
@@ -55,7 +55,7 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/empleado/index.php" class="btn btn-primary w-100">REGRESAR AL FORMULARIO DE REGISTRO</a>
+        <a href="../../vistas/puesto/index.php" class="btn btn-primary w-100">REGRESAR AL FORMULARIO DE REGISTRO DE PUESTOS</a>
     </div>
 </div>
 

@@ -64,4 +64,10 @@ class Puesto extends conexion{
         return $resultado; 
     }
 
+    public function eliminar(){
+        $sql = "UPDATE puestos SET pue_situacion = 0 WHERE pue_id = $this->pue_id ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
+
 }

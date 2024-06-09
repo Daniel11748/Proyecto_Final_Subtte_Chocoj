@@ -39,7 +39,7 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row mb-4 justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/puesto/buscar.php" class="btn btn-primary w-100">Volver al formulario de busqueda</a>
+        <a href="../../vistas/puesto/buscar.php" class="btn btn-primary w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
     </div>
 </div>
 <h1 class="text-center">PUESTOS EN NUETRA EMPRESA</h1>
@@ -67,8 +67,8 @@ include_once '../../vistas/templates/header.php'; ?>
                                         Acciones
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/puesto/modificar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-pencil-square me-2"></i>Modificar</a></li>
-                                        <li><a class="dropdown-item" href="../../controladores/puesto/eliminar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-trash me-2"></i>Eliminar</a></li>
+                                        <li><a class="dropdown-item" href="../../vistas/puesto/modificar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
+                                        <li><a class="dropdown-item" href="../../controladores/puestos/eliminar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
                                     </ul>
                                 </div>
 

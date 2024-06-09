@@ -56,7 +56,7 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row justify-content-center">
     <div class="col-lg-6">
-        <a href="../../controladores/puestos/buscar.php" class="btn btn-primary w-100">Regresar</a>
+        <a href="../../controladores/puestos/buscar.php" class="btn btn-primary w-100">REGRESAR</a>
     </div>
 </div>
 
