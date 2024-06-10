@@ -1,5 +1,5 @@
 <?php
-require 'conexion.php';
+require_once 'conexion.php';
 
 class Empleado extends conexion{
     public $emp_id;
@@ -61,7 +61,6 @@ class Empleado extends conexion{
         if($this->emp_sexo != ''){
             $sql .= " AND emp_sexo = $this->emp_sexo ";
         }
-
         $resultado = self::servir($sql);
         return $resultado;
     }

@@ -10,7 +10,7 @@ abstract class conexion{
             
             self::$conexion = new PDO("informix:host=host.docker.internal; service=9088;database=ingesoft; server=informix; protocol=onsoctcp;EnableScrollableCursors=1", "informix", "in4mix");
             self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "se ha conectado correctamente";
+            // echo "se ha conectado correctamente";
         } catch (PDOException $e) {
             echo "No se pudo conectar con la BD";
             echo "<br>";
