@@ -13,18 +13,27 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-file-person me-2"></i>EMPLEADOS
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item bg-secondary" href="../../vistas/empleado/index.php"><i class="bi bi-plus-circle me-2"></i>INGRESAR</a></li>
-            <li><a class="dropdown-item bg-secondary" href="../../vistas/empleado/buscar.php"><i class="bi bi-search me-2"></i>BUSCAR</a></li>
+          <ul class="dropdown-menu bg-secondary bg-opacity-75">
+            <li><a class="dropdown-item" href="../../vistas/empleado/index.php"><i class="bi bi-plus-circle me-2"></i>INGRESAR</a></li>
+            <li><a class="dropdown-item" href="../../vistas/empleado/buscar.php"><i class="bi bi-search me-2"></i>BUSCAR</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-file-person me-2"></i>PUESTOS
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item bg-secondary" href="../../vistas/puesto/index.php"><i class="bi bi-plus-circle me-2"></i>INGRESAR</a></li>
-            <li><a class="dropdown-item bg-secondary" href="../../vistas/puesto/buscar.php"><i class="bi bi-search me-2"></i>BUSCAR</a></li>
+          <ul class="dropdown-menu bg-secondary">
+            <li><a class="dropdown-item" href="../../vistas/puesto/index.php"><i class="bi bi-plus-circle me-2"></i>INGRESAR</a></li>
+            <li><a class="dropdown-item" href="../../vistas/puesto/buscar.php"><i class="bi bi-search me-2"></i>BUSCAR</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-file-person me-2"></i>AREAS
+          </a>
+          <ul class="dropdown-menu bg-secondary">
+            <li><a class="dropdown-item" href="../../vistas/area/index.php"><i class="bi bi-plus-circle me-2"></i>INGRESAR</a></li>
+            <li><a class="dropdown-item" href="../../vistas/area/buscar.php"><i class="bi bi-search me-2"></i>BUSCAR</a></li>
           </ul>
         </li>
     </div>
