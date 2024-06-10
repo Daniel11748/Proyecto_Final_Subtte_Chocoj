@@ -43,44 +43,43 @@ include_once '../../vistas/templates/header.php'; ?>
 <h1 class="text-center">PUESTOS EN NUETRA EMPRESA</h1>
 <div class="row justify-content-center">
     <div class="col-lg-8">
-        <table class="table table-bordered table-hover">
-            <thead>
+    <table class="table table-bordered table-hover bg-white border">
+    <thead class="border">
+        <tr>
+            <th class="border">No.</th>
+            <th class="border">Nombre</th>
+            <th class="border">Sueldo</th>
+            <th class="border">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if ($resultado['codigo'] == 1 && count($puestos) > 0) : ?>
+            <?php foreach ($puestos as $key => $puesto) : ?>
                 <tr>
-                    <th>No.</th>
-                    <th>Nombre</th>
-                    <th>Sueldo</th>
-                    <th>Acciones</th>
+                    <td class="border"><?= $key + 1 ?></td>
+                    <td class="border"><?= $puesto['pue_nombre'] ?></td>
+                    <td class="border"><?= $puesto['pue_sueldo'] ?></td>
+                    <td class="border text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acciones
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../../vistas/puesto/modificar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
+                                <li><a class="dropdown-item" href="../../controladores/puestos/eliminar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php if ($resultado['codigo'] == 1 && count($puestos) > 0) : ?>
-                    <?php foreach ($puestos as $key => $puesto) : ?>
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td><?= $puesto['pue_nombre'] ?></td>
-                            <td><?= $puesto['pue_sueldo'] ?></td>
-                            <td class="text-center">
-                                <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Acciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/puesto/modificar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
-                                        <li><a class="dropdown-item" href="../../controladores/puestos/eliminar.php?pue_id=<?= base64_encode($puesto['pue_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
-                                    </ul>
-                                </div>
+            <?php endforeach ?>
+        <?php else : ?>
+            <tr>
+                <td colspan="4" class="border">NO SE HAN REGISTRADO PUESTOS</td>
+            </tr>
+        <?php endif ?>
+    </tbody>
+</table>
 
-                            </td>
-                        </tr>
-                    <?php endforeach ?>
-                <?php else : ?>
-                    <tr>
-                        <td colspan="4">NO SE HAN REGISTRADO PUESTOS</td>
-                    </tr>
-                <?php endif ?>
-            </tbody>
-
-        </table>
     </div>
 </div>
 <?php include_once '../../vistas/templates/foother.php'; ?>

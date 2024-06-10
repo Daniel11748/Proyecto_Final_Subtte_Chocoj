@@ -16,10 +16,6 @@ include_once '../../vistas/templates/header.php'; ?>
                 <label for="emp_dpi">DPI</label>
                 <input type="number" name="emp_dpi" id="emp_dpi" class="form-control">
             </div>
-            <div class="col">
-                <label for="emp_puesto">PUESTO</label>
-                <input type="number" name="emp_puesto" id="emp_puesto" class="form-control">
-            </div>
         </div>
         <div class="row mb-3">
             <div class="col">

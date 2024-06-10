@@ -45,50 +45,49 @@ include_once '../../vistas/templates/header.php'; ?>
 <h1 class="text-center">EMPLEADOS</h1>
 <div class="row justify-content-center">
     <div class="col-lg-8">
-        <table class="table table-bordered table-hover">
-            <thead>
+    <table class="table table-bordered table-hover bg-white border">
+    <thead class="border">
+        <tr>
+            <th class="border">No.</th>
+            <th class="border">Nombre</th>
+            <th class="border">DPI</th>
+            <th class="border">Puesto</th>
+            <th class="border">Edad</th>
+            <th class="border">Sexo</th>
+            <th class="border">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if ($resultado['codigo'] == 1 && count($empleados) > 0) : ?>
+            <?php foreach ($empleados as $key => $empleado) : ?>
                 <tr>
-                    <th>No.</th>
-                    <th>Nombre</th>
-                    <th>DPI</th>
-                    <th>Puesto</th>
-                    <th>Edad</th>
-                    <th>Sexo</th>
-                    <th>Acciones</th>
+                    <td class="border"><?= $key + 1 ?></td>
+                    <td class="border"><?= $empleado['emp_nombre'] ?></td>
+                    <td class="border"><?= $empleado['emp_dpi'] ?></td>
+                    <td class="border"><?= $empleado['emp_puesto'] ?></td>
+                    <td class="border"><?= $empleado['emp_edad'] ?></td>
+                    <td class="border"><?= $empleado['emp_sexo'] ?></td>
+                    <td class="border text-center">
+                        <div class="dropdown">
+                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acciones
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../../vistas/empleado/modificar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
+                                <li><a class="dropdown-item" href="../../controladores/empleados/eliminar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php if ($resultado['codigo'] == 1 && count($empleados) > 0) : ?>
-                    <?php foreach ($empleados as $key => $empleado) : ?>
-                        <tr>
-                            <td><?= $key + 1 ?></td>
-                            <td><?= $empleado['emp_nombre'] ?></td>
-                            <td><?= $empleado['emp_dpi'] ?></td>
-                            <td><?= $empleado['emp_puesto'] ?></td>
-                            <td><?= $empleado['emp_edad'] ?></td>
-                            <td><?= $empleado['emp_sexo'] ?></td>
-                            <td class="text-center">
-                                <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Acciones
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/empleado/modificar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
-                                        <li><a class="dropdown-item" href="../../controladores/empleados/eliminar.php?emp_id=<?= base64_encode($empleado['emp_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
-                                    </ul>
-                                </div>
+            <?php endforeach ?>
+        <?php else : ?>
+            <tr>
+                <td colspan="4" class="border">NO SE HAN REGISTRADO EMPLEADOS</td>
+            </tr>
+        <?php endif ?>
+    </tbody>
+</table>
 
-                            </td>
-                        </tr>
-                    <?php endforeach ?>
-                <?php else : ?>
-                    <tr>
-                        <td colspan="4">NO SE HAN REGISTRADO EMPLEADOS</td>
-                    </tr>
-                <?php endif ?>
-            </tbody>
-
-        </table>
     </div>
 </div>
 <?php include_once '../../vistas/templates/foother.php'; ?>

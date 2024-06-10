@@ -11,3 +11,12 @@
 <body>
 <?php include_once '../../vistas/templates/navbar.php'?>
 <div class="container mt-5 pt-5">
+<style>
+ body {
+    background-color: #d1d5f2; /* Color azul grisáceo oscuro */
+    color: #333; /* Color del texto */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+</style>

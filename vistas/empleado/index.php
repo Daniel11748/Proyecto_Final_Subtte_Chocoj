@@ -23,11 +23,11 @@ $puestos = $puesto->buscarTodos('pue_id', 'pue_nombre');
             </div>
         </div>
         <div class="row mb-3">
-        <div class="col">
+            <div class="col">
                 <label for="emp_puesto">PUESTO</label>
                 <select name="emp_puesto" id="emp_puesto" class="form-select" required>
                     <option value="" selected>SELECCIONAR UN PUESTO</option>
-                    <?php foreach ($puestos as $puesto): ?>
+                    <?php foreach ($puestos as $puesto) : ?>
                         <option value="<?php echo $puesto['pue_id']; ?>"><?php echo $puesto['pue_nombre']; ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -37,7 +37,7 @@ $puestos = $puesto->buscarTodos('pue_id', 'pue_nombre');
                 <input type="number" name="emp_edad" id="emp_edad" class="form-control" required>
             </div>
             <div class="col">
-            <label for="emp_sexo">SEXO</label>
+                <label for="emp_sexo">SEXO</label>
                 <select name="emp_sexo" class="form-select" aria-label="Default select example">
                     <option selected>SELECCIONAR UN SEXO</option>
                     <option value="1">MASCULINO</option>
@@ -52,7 +52,8 @@ $puestos = $puesto->buscarTodos('pue_id', 'pue_nombre');
         </div>
         <div class="row">
             <div class="col">
-                <a href="../../controladores/empleados/buscar.php" class="btn btn-success w-100">BUSCAR</a>
+                <a href="../../controladores/empleados/buscar.php" class="btn btn-secondary w-100">BUSCAR</a>
+
             </div>
         </div>
     </form>
