@@ -4,14 +4,14 @@ require '../../modelos/Asignacion.php';
 
 // consulta
 try {
-    $_GET['asi_emp_id'] = htmlspecialchars($_GET['asi_emp_id']);
-    $_GET['asi_are_id'] = htmlspecialchars($_GET['asi_are_id']);
+    $_GET['asi_emp_id'] = filter_var($_GET['asi_emp_id'], FILTER_VALIDATE_INT);
+    $_GET['asi_are_id'] = filter_var($_GET['asi_are_id'], FILTER_VALIDATE_INT);
 
     // $_GET['pue_sueldo'] = filter_var($_GET['pue_sueldo'], FILTER_VALIDATE_INT);
 
 
     $objAsignacion = new Asignacion($_GET);
-    $asignaciones = $objAsignacion->buscar();
+    $asignaciones = $objAsignacion->MostrarNombre();
     $resultado = [
         'mensaje' => 'Datos encontrados',
         'datos' => $asignaciones,
@@ -59,15 +59,15 @@ include_once '../../vistas/templates/header.php'; ?>
                     <?php foreach ($asignaciones as $key => $asignacion) : ?>
                         <tr>
                             <td><?= $key + 1 ?></td>
-                            <td><?= $asignacion['asi_emp_id'] ?></td>
-                            <td><?= $asignacion['asi_are_id'] ?></td>
+                            <td><?= $asignacion['emp_nombre'] ?></td>
+                            <td><?= $asignacion['are_nombre'] ?></td>
                             <td class="text-center">
                                 <div class="dropdown">
                                     <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Acciones
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/asignacion/modificar?asi_id=<?= base64_encode($asignacion['asi_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
+                                        <li><a class="dropdown-item" href="../../vistas/asignacion/modificar.php?asi_id=<?= base64_encode($asignacion['asi_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
                                         <li><a class="dropdown-item" href="../../controladores/asignaciones/eliminar.php?asi_id=<?= base64_encode($asignacion['asi_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
                                     </ul>
                                 </div>

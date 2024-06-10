@@ -58,7 +58,7 @@ class Asignacion extends conexion{
     }
 
     public function modificar(){
-        $sql = "UPDATE asignacion_areas SET asi_emp_id = '$this->asi_emp_id' WHERE asi_id = '$this->asi_id' ";
+        $sql = "UPDATE asignacion_areas SET asi_emp_id = '$this->asi_emp_id', asi_are_id = '$this->asi_are_id' WHERE asi_id = '$this->asi_id' ";
         $resultado = $this->ejecutar($sql);
         return $resultado; 
     }
@@ -68,5 +68,15 @@ class Asignacion extends conexion{
         $resultado = $this->ejecutar($sql);
         return $resultado; 
     }
+
+    public function MostrarNombre(){
+        $sql = "SELECT asi_id, emp_nombre, are_nombre FROM asignacion_areas INNER JOIN empleados ON asi_emp_id = emp_id INNER JOIN areas ON asi_are_id = are_id WHERE asi_situacion = 1 ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
+
+
+    
+
 }
 
