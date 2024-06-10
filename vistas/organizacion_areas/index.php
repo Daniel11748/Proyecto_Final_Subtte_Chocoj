@@ -6,6 +6,7 @@ require_once '../../modelos/Area.php';
 $area = new Area();
 // Obtener todas las areas
 $areas = $area->buscar();
+
 ?>
 
 <h1 class="text-center">ORGANIZACION DE INGESOFT S.A.</h1>
@@ -13,8 +14,8 @@ $areas = $area->buscar();
     <form action="MostrarAreas.php" method="POST" class="border bg-light shadow rounded p-4 col-lg-6">
         <div class="row mb-3">
             <div class="col">
-                <label for="asi_are_id">AREA</label>
-                <select name="asi_are_id" id="asi_are_id" class="form-select" required>
+                <label for="are_id">AREA</label>
+                <select name="are_id" id="are_id" class="form-select" required>
                     <option value="" selected>SELECCIONAR UN AREA</option>
                     <?php foreach ($areas as $area) : ?>
                         <option value="<?php echo $area['are_id']; ?>"><?php echo $area['are_nombre']; ?></option>

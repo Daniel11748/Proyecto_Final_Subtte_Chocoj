@@ -1,8 +1,19 @@
 <?php
 require '../../modelos/Empleado.php';
-$are_id-> $id;
 
-$id = $_POST[$are_id];
+
+
+
+$id = htmlspecialchars($_POST['are_id']);
+
+
+// $are_id-> $id;
+
+// $id = $_POST[$are_id];
+
+// var_dump($id);
+// exit;
+
 
 $Area = new Empleado();
 $DatosArea = $Area->MostrarPorAreas($id);
