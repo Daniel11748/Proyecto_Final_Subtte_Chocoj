@@ -18,7 +18,7 @@ $areas = $area->buscar();
         <div class="row mb-3">
             <div class="col">
                 <label for="asi_emp_id">EMPLEADO</label>
-                <select name="asi_emp_id" id="asi_emp_id" class="form-select" required>
+                <select name="asi_emp_id" id="asi_emp_id" class="form-select">
                     <option value="" selected>SELECCIONAR UN EMPLEADO</option>
                     <?php foreach ($empleados as $empleado) : ?>
                         <option value="<?php echo $empleado['emp_id']; ?>"><?php echo $empleado['emp_nombre']; ?></option>
@@ -29,7 +29,7 @@ $areas = $area->buscar();
         <div class="row mb-3">
             <div class="col">
                 <label for="asi_are_id">AREA</label>
-                <select name="asi_are_id" id="asi_are_id" class="form-select" required>
+                <select name="asi_are_id" id="asi_are_id" class="form-select">
                     <option value="" selected>SELECCIONAR UN AREA</option>
                     <?php foreach ($areas as $area) : ?>
                         <option value="<?php echo $area['are_id']; ?>"><?php echo $area['are_nombre']; ?></option>
