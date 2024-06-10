@@ -62,8 +62,8 @@ include_once '../../vistas/templates/header.php'; ?>
                                         Acciones
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="../../vistas/area/modificar.php?pue_id=<?= base64_encode($area['pue_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
-                                        <li><a class="dropdown-item" href="../../controladores/areas/eliminar.php?pue_id=<?= base64_encode($area['pue_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
+                                        <li><a class="dropdown-item" href="../../vistas/area/modificar.php?are_id=<?= base64_encode($area['are_id']) ?>"><i class="bi bi-pencil-square me-2"></i>MODIFICAR</a></li>
+                                        <li><a class="dropdown-item" href="../../controladores/areas/eliminar.php?are_id=<?= base64_encode($area['are_id']) ?>"><i class="bi bi-trash me-2"></i>ELIMINAR</a></li>
                                     </ul>
                                 </div>
 
