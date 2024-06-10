@@ -70,9 +70,10 @@ class Asignacion extends conexion{
     }
 
     public function MostrarNombre(){
-        $sql = "SELECT asi_id, emp_nombre, are_nombre FROM asignacion_areas INNER JOIN empleados ON asi_emp_id = emp_id INNER JOIN areas ON asi_are_id = are_id WHERE asi_situacion = 1 ";
-        $resultado = $this->ejecutar($sql);
-        return $resultado; 
+        $sql = "SELECT asi_id, emp_nombre, are_nombre FROM asignacion_areas INNER JOIN empleados ON asi_emp_id = emp_id INNER JOIN areas ON asi_are_id = are_id WHERE asi_situacion = 1  ";
+   
+        $resultado = self::servir($sql);
+        return $resultado;
     }
 
 

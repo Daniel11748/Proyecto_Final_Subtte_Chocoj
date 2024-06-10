@@ -10,8 +10,10 @@ try {
     // $_GET['pue_sueldo'] = filter_var($_GET['pue_sueldo'], FILTER_VALIDATE_INT);
 
 
-    $objAsignacion = new Asignacion($_GET);
+    $objAsignacion = new Asignacion();
     $asignaciones = $objAsignacion->MostrarNombre();
+
+
     $resultado = [
         'mensaje' => 'Datos encontrados',
         'datos' => $asignaciones,
@@ -85,4 +87,6 @@ include_once '../../vistas/templates/header.php'; ?>
         </table>
     </div>
 </div>
-<?php include_once '../../vistas/templates/foother.php'; ?>
+<?php 
+
+include_once '../../vistas/templates/foother.php'; ?>

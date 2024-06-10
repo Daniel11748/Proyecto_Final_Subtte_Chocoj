@@ -84,4 +84,15 @@ class Empleado extends conexion{
         return $resultado; 
     }
 
+    public function MostrarPorAreas($id){
+        $sql = " SELECT emp_nombre, emp_dpi, pue_nombre, emp_edad, emp_sexo, pue_sueldo FROM empleados  
+        inner join puestos on emp_puesto = pue_id
+        INNER JOIN asignacion_areas on asi_emp_id = emp_id
+        where asi_are_id = '$id' ";
+
+        $resultado =  self::servir($sql) ;
+        return $resultado;
+    }
+
+
 }

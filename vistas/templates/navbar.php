@@ -45,6 +45,14 @@
             <li><a class="dropdown-item" href="../../vistas/asignacion/buscar.php"><i class="bi bi-search me-2"></i>BUSCAR</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-file-person me-2"></i>TABLA DE ORGANIZACION POR AREAS
+          </a>
+          <ul class="dropdown-menu bg-secondary">
+            <li><a class="dropdown-item" href="../../vistas/organizacion_areas/index.php" class="bi bi-plus-circle me-2"></i>INGRESAR</a></li>
+          </ul>
+        </li>
     </div>
   </div>
 </nav>
