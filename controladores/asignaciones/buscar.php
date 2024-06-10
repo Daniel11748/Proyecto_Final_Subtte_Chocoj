@@ -44,7 +44,7 @@ include_once '../../vistas/templates/header.php'; ?>
         <a href="../../vistas/asignacion/buscar.php" class="btn btn-success w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
     </div>
 </div>
-<h1 class="text-center">PUESTOS EN NUETRA EMPRESA</h1>
+<h1 class="text-center">NUETRA EMPRESA</h1>
 <div class="row justify-content-center">
     <div class="col-lg-8">
     <table class="table table-bordered table-hover bg-white border">
