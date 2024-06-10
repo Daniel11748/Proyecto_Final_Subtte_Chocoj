@@ -52,4 +52,10 @@ class Area extends conexion{
         $resultado = $this->ejecutar($sql);
         return $resultado; 
     }
+
+    public function eliminar(){
+        $sql = "UPDATE areas SET are_situacion = 0 WHERE are_id = $this->are_id ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
 }
