@@ -1,6 +1,13 @@
 <?php
 
-include_once '../../vistas/templates/header.php'; ?>
+include_once '../../vistas/templates/header.php';
+require_once '../../modelos/Puesto.php';
+
+$puesto = new Puesto();
+
+// Obtener todos los puestos
+$puestos = $puesto->buscarTodos('pue_id', 'pue_nombre');
+?>
 
 <h1 class="text-center">FORMULARIO DE EMPLEADOS</h1>
 <div class="row justify-content-center">
@@ -16,9 +23,14 @@ include_once '../../vistas/templates/header.php'; ?>
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col">
+        <div class="col">
                 <label for="emp_puesto">PUESTO</label>
-                <input type="number" name="emp_puesto" id="emp_puesto" class="form-control" required>
+                <select name="emp_puesto" id="emp_puesto" class="form-select" required>
+                    <option value="" selected>SELECCIONAR UN PUESTO</option>
+                    <?php foreach ($puestos as $puesto): ?>
+                        <option value="<?php echo $puesto['pue_id']; ?>"><?php echo $puesto['pue_nombre']; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
             <div class="col">
                 <label for="emp_edad">EDAD</label>
