@@ -36,7 +36,7 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row mb-4 justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/area/buscar.php" class="btn btn-primary w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
+        <a href="../../vistas/area/buscar.php" class="btn btn-success w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
     </div>
 </div>
 <h1 class="text-center">AREAS DE INGESOFT S.A.</h1>
@@ -58,7 +58,7 @@ include_once '../../vistas/templates/header.php'; ?>
                     <td class="border"><?= $area['are_nombre'] ?></td>
                     <td class="border text-center">
                         <div class="dropdown">
-                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Acciones
                             </button>
                             <ul class="dropdown-menu">

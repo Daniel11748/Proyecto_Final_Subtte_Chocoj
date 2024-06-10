@@ -37,7 +37,7 @@ include_once '../../vistas/templates/header.php'; ?>
 </div>
 <div class="row mb-4 justify-content-center">
     <div class="col-lg-6">
-        <a href="../../vistas/puesto/buscar.php" class="btn btn-primary w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
+        <a href="../../vistas/puesto/buscar.php" class="btn btn-success w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
     </div>
 </div>
 <h1 class="text-center">PUESTOS EN NUETRA EMPRESA</h1>
@@ -61,7 +61,7 @@ include_once '../../vistas/templates/header.php'; ?>
                     <td class="border"><?= $puesto['pue_sueldo'] ?></td>
                     <td class="border text-center">
                         <div class="dropdown">
-                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Acciones
                             </button>
                             <ul class="dropdown-menu">

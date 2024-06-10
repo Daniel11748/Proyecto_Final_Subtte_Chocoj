@@ -60,7 +60,7 @@ include_once '../../vistas/templates/header.php'; ?>
 
         <div class="row mb-4 justify-content-center">
             <div class="col-lg-6">
-                <a href="../../vistas/organizacion_areas/index.php" class="btn btn-primary w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
+                <a href="../../vistas/organizacion_areas/index.php" class="btn btn-success w-100">VOLVER AL FORMULARIO DE BUSQUEDA</a>
             </div>
         </div>
     </div>
