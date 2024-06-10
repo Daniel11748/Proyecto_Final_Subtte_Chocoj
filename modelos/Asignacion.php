@@ -1,5 +1,5 @@
 <?php
-require 'conexion.php';
+require_once 'conexion.php';
 
 class Asignacion extends conexion{
     public $asi_id;
@@ -25,4 +25,48 @@ class Asignacion extends conexion{
         return $resultado; 
     }
 
+    
+      // METODO PARA CONSULTAR
+      public static function buscarTodos(...$columnas){
+        $cols = count($columnas) > 0 ? implode(',', $columnas) : '*';
+        $sql = "SELECT $cols FROM asignacion_areas where asi_situacion = 1 ";
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+
+
+    public function buscar(...$columnas){
+        $cols = count($columnas) > 0 ? implode(',', $columnas) : '*';
+        $sql = "SELECT $cols FROM asignacion_areas where asi_situacion = 1 ";
+
+
+        if($this->asi_emp_id != ''){
+            $sql .= " AND asi_emp_id = $this->asi_emp_id ";
+        }
+        if($this->asi_are_id != ''){
+            $sql .= " AND asi_are_id = $this->asi_emp_id ";
+        }
+        $resultado = self::servir($sql);
+        return $resultado;
+    }
+
+    public function buscarId($id){
+        $sql = " SELECT * FROM asignacion_areas WHERE asi_situacion = 1 AND asi_id = '$id' ";
+        $resultado = array_shift( self::servir($sql)) ;
+
+        return $resultado;
+    }
+
+    public function modificar(){
+        $sql = "UPDATE asignacion_areas SET asi_emp_id = '$this->asi_emp_id' WHERE asi_id = '$this->asi_id' ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
+
+    public function eliminar(){
+        $sql = "UPDATE asignacion_areas SET asi_situacion = 0 WHERE asi_id = $this->asi_id ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
 }
+
