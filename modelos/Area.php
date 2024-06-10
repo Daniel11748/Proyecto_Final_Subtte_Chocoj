@@ -46,4 +46,10 @@ class Area extends conexion{
 
         return $resultado;
     }
+
+    public function modificar(){
+        $sql = "UPDATE areas SET are_nombre = '$this->are_nombre' WHERE are_id = '$this->are_id' ";
+        $resultado = $this->ejecutar($sql);
+        return $resultado; 
+    }
 }
